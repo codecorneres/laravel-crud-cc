@@ -10,14 +10,5 @@ class Registration extends Model
     use HasFactory;
     public $table = 'registration_form';
     public $primaryKey = 'id';
-    public $fillable = [
-        'First Name',
-        'Last Name',
-        'Email',
-        'Password',
-        'Address',
-        'Country',
-        'State'
-
-    ];
+    public $fillable = [];
 }

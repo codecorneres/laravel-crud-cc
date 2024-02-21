@@ -16,15 +16,21 @@ class LaravelOperations extends Controller
     {
         // echo '<pre/>';
         // print_r($request->all());
+
+        // Registration::create($request->all());
         $registrationData =  new Registration();
         //$registrationData->id=$request->input('id');
         $registrationData->FirstName = $request['first_name'];
         $registrationData->LastName = $request['last_name'];
         $registrationData->Email = $request['user_email'];
-        $registrationData->Password = md5($request['user_password']);
+        $registrationData->PhoneNumber = $request['user_phn'];
         $registrationData->Address = $request['user_address'];
         $registrationData->Country =  $request['user_country'];
         $registrationData->State = $request['user_state'];
+        $registrationData->Gender = $request['user_gender'];
+        $registrationData->Qualification = $request['user_qalification'];
+        $registrationData->Course = $request['addCourse'];
+        $registrationData->Adharcard = $request['myfile'];
         $registrationData->save();
         return redirect('/customer-view');
     }
@@ -45,6 +51,11 @@ class LaravelOperations extends Controller
         $customers->Address = $request['user_address'];
         $customers->Country =  $request['user_country'];
         $customers->State = $request['user_state'];
+        $customers->Gender = $request['user_gender'];
+        $customers->Qualification = $request['user_qalification'];
+
+        $customers->Course = $request['addCourse'];
+        $customers->Adharcard = $request['myfile'];
         $customers->save();
         return redirect('/customer-view');
     }

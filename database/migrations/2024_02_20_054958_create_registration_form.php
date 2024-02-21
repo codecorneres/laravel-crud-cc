@@ -16,10 +16,14 @@ return new class extends Migration
             $table->string('FirstName');
             $table->string('LastName');
             $table->string('Email')->unique();
-            $table->string('Password')->nullable();
+            $table->string('PhoneNumber')->nullable();
             $table->string('Address');
             $table->string('Country');
             $table->string('State');
+            $table->string('Gender');
+            $table->string('Qualification');
+
+            $table->binary('Adharcard');
             $table->timestamps();
         });
     }

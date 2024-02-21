@@ -21,9 +21,9 @@
 
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
-                    name="user_password">
+                <label for="exampleInputPassword1">Phone Number</label>
+                <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="Phone Number"
+                    name="user_phn">
             </div>
             <div class="form-group">
                 <label for="fullAddress">Full Address</label>
@@ -40,6 +40,49 @@
             <div class="form-group">
                 <label for="country">State</label>
                 <input type="text" class="form-control" id="formState" placeholder="Country" name="user_state">
+
+            </div>
+
+            <div class="form-group">
+                <h5>Gender</h5>
+                <label for="country">Male</label>
+                <input type="radio" class="form-control" id="formGenderMale" name="user_gender" value="Male">
+                <label for="country">Female</label>
+                <input type="radio" class="form-control" id="formGenderFemale" name="user_gender" value="Female">
+                <label for="country">Other</label>
+                <input type="radio" class="form-control" id="formGenderOther" name="user_gender" value="Other">
+            </div>
+
+
+            <div class="form-group">
+                <h5>Highest Qualification</h5>
+                <label>Senior Secondary </label>
+                <input type="checkbox" class="form-control" name="user_qalification" value="12th">
+                <label>Bechelors</label>
+                <input type="checkbox" class="form-control" name="user_qalification" value="Bechelors">
+                <label>Master's</label>
+                <input type="checkbox" class="form-control" name="user_qalification" value="Master">
+            </div>
+            <div class="form-group">
+                <label>Choose a Course:</label>
+
+                <select name="addCourse">
+                    <option value="Art">Art</option>
+                    <option value="Non-medical">Non-medical</option>
+                    <option value="Medical">Medical</option>
+                    <option value="BA">Bechelors of art</option>
+                    <option value="Bsc">Bechelors of science</option>
+                    <option value="Bcom">Bechelors of commerce</option>
+                    <option value="BBA">Bachelor of Business Administration</option>
+                    <option value="MA">Masters of art</option>
+                    <option value="Msc">Masters of science</option>
+                    <option value="Mcom">Masters of commerce</option>
+                    <option value="MBA">Masters of Business Administration</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="country">Adhar card</label>
+                <input type="file" class="form-control" id="myfile" name="myfile">
 
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
