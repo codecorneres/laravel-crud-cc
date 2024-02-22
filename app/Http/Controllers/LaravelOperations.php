@@ -31,13 +31,30 @@ class LaravelOperations extends Controller
         $registrationData->Qualification = $request['user_qalification'];
         $registrationData->Course = $request['addCourse'];
 
+        // if ($request->hasFile('myfile')) {
+        //     $file = $request->file('myfile');
+        //     $extenstion = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $extenstion;
+        //     $file->move('uploads/students/', $filename);
+        //     $registrationData->Adharcard = $filename;
+        // }
         if ($request->hasFile('myfile')) {
-            $file = $request->file('myfile');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extenstion;
-            $file->move('uploads/students/', $filename);
-            $registrationData->Adharcard = $filename;
+            $files = $request->file('myfile');
+            $adharCards = [];
+
+            foreach ($files as $key => $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = time() . '_' . $key . '.' . $extension;
+                    $file->move('uploads/students/', $filename);
+                    logger($filename);
+                    $adharCards[] = $filename;
+                }
+            }
+            $adharval = json_encode($adharCards);
+            $registrationData->Adharcard = $adharval;
         }
+
         //$registrationData->Adharcard = 'dytdd';
         $registrationData->save();
         return redirect('/customer-view');
@@ -65,15 +82,22 @@ class LaravelOperations extends Controller
         $customers->Course = $request['addCourse'];
 
         if ($request->hasFile('myfile')) {
-            // logger('file upload');
-            $file = $request->file('myfile');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extenstion;
+            $files = $request->file('myfile');
+            $adharCards = [];
 
-            $file->move('uploads/students/', $filename);
-
-            $customers->Adharcard = $filename;
+            foreach ($files as $key => $file) {
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
+                    $filename = time() . '_' . $key . '.' . $extension;
+                    $file->move('uploads/students/', $filename);
+                    logger($filename);
+                    $adharCards[] = $filename;
+                }
+            }
+            $adharval = json_encode($adharCards);
+            $customers->Adharcard = $adharval;
         }
+
 
         // $customers->Adharcard = $request['myfile'];
         $customers->save();

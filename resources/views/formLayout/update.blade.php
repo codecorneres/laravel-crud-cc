@@ -89,10 +89,18 @@
                 </select>
             </div>
             <div class="form-group">
-                <img src="{{ URL::asset('uploads/students') }}/{{ $customers->Adharcard }}" alt=""
-                    height="70px" width="70px"><br><br>
+
+                @php
+                    $adharcard = json_decode($customers->Adharcard);
+                @endphp
+                @foreach ($adharcard as $filename)
+                    <img src="{{ asset('uploads/students/' . $filename) }}" alt="Adhar Card" height="70px"
+                        width="70px"><br><br>
+                @endforeach
+                {{-- //<img src="{{ URL::asset('uploads/students') }}/{{ $customers->Adharcard }}" alt=""
+                    height="70px" width="70px"><br><br> --}}
                 <label for="country">Adhar card</label>
-                <input type="file" class="form-control" id="myfile" name="myfile">
+                <input type="file" class="form-control" id="myfile" name="myfile[]" multiple>
 
             </div>
 

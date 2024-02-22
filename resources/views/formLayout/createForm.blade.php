@@ -91,9 +91,14 @@
                         <option value="MBA">Masters of Business Administration</option>
                     </select>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="country">Adhar card</label>
                     <input type="file" class="form-control" id="myfile" name="myfile">
+
+                </div> --}}
+                <div class="form-group">
+                    <label for="country">Adhar card</label>
+                    <input type="file" class="form-control" id="myfile" name="myfile[]" multiple>
 
                 </div>
                 <div class="btn-sub"> <button type="submit" class="btn btn-primary">Submit</button></div>
