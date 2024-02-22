@@ -30,7 +30,15 @@ class LaravelOperations extends Controller
         $registrationData->Gender = $request['user_gender'];
         $registrationData->Qualification = $request['user_qalification'];
         $registrationData->Course = $request['addCourse'];
-        $registrationData->Adharcard = $request['myfile'];
+
+        if ($request->hasFile('myfile')) {
+            $file = $request->file('myfile');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extenstion;
+            $file->move('uploads/students/', $filename);
+            $registrationData->Adharcard = $filename;
+        }
+        //$registrationData->Adharcard = 'dytdd';
         $registrationData->save();
         return redirect('/customer-view');
     }
@@ -55,7 +63,19 @@ class LaravelOperations extends Controller
         $customers->Qualification = $request['user_qalification'];
 
         $customers->Course = $request['addCourse'];
-        $customers->Adharcard = $request['myfile'];
+
+        if ($request->hasFile('myfile')) {
+            logger('file upload');
+            $file = $request->file('myfile');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extenstion;
+
+            $file->move('uploads/students/', $filename);
+
+            $customers->Adharcard = $filename;
+        }
+
+        // $customers->Adharcard = $request['myfile'];
         $customers->save();
         return redirect('/customer-view');
     }

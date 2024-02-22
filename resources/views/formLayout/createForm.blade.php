@@ -2,7 +2,7 @@
 
     <div class="form-child">
 
-        <form method="POST" action="{{ url('/insert') }}">
+        <form method="POST" action="{{ url('/insert') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="firstName">First Name</label>

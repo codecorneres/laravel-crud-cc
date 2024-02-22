@@ -2,7 +2,7 @@
 
     <div class="form-child">
 
-        <form method="POST" action="{{ url('/update') }}/{{ $customers->id }}">
+        <form method="POST" action="{{ url('/update') }}/{{ $customers->id }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -87,9 +87,10 @@
                 </select>
             </div>
             <div class="form-group">
+                <img src="{{ URL::asset('uploads/students') }}/{{ $customers->Adharcard }}" alt=""
+                    height="70px" width="70px"><br><br>
                 <label for="country">Adhar card</label>
-                <input type="file" class="form-control" id="myfile" name="myfile"
-                    value="{{ $customers->Adharcard }}">
+                <input type="file" class="form-control" id="myfile" name="myfile">
 
             </div>
 
