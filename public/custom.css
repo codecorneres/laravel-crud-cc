@@ -1,0 +1,74 @@
+.form-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+
+form {
+    border: 1px solid black;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 5px;
+}
+
+.form-group {
+    margin: 16px auto;
+}
+
+button.btn.btn-primary {
+    padding: 10px 120px 10px 120px;
+    background-color: #131313;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.btn-sub {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+.back-btn {
+    text-align: center;
+    margin-top: 25px;
+}
+
+a.btn-back {
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 10px;
+
+    background-color: darkgreen;
+    color: white;
+    border: none;
+}
+a.btn-update {
+    text-decoration: none;
+    border: none;
+
+    color: blue;
+    text-transform: uppercase;
+}
+a.btn-delete {
+    text-decoration: none;
+    border: none;
+
+    color: red;
+    text-transform: uppercase;
+}

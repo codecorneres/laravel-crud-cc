@@ -65,7 +65,7 @@ class LaravelOperations extends Controller
         $customers->Course = $request['addCourse'];
 
         if ($request->hasFile('myfile')) {
-            logger('file upload');
+            // logger('file upload');
             $file = $request->file('myfile');
             $extenstion = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extenstion;

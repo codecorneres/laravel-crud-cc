@@ -1,3 +1,4 @@
+<link href="{{ URL::asset('custom.css') }} " rel="stylesheet">
 <div class="form-container">
 
     <div class="form-child">
@@ -5,6 +6,7 @@
         <form method="POST" action="{{ url('/update') }}/{{ $customers->id }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <h2>Update Details</h2>
             <div class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" class="form-control" id="formFirstName" placeholder="First Name" name="first_name"
