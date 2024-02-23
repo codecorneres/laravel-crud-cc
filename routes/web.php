@@ -27,3 +27,5 @@ Route::get('/customer-view', [LaravelOperations::class, 'getData'])->name('Data'
 
 Route::put('/update/{id}', [LaravelOperations::class, 'updateData'])->name('updated');
 Route::get('/delete/{id}', [LaravelOperations::class, 'destroy'])->name('destroy');
+
+Route::post('/remove-image', [LaravelOperations::class, 'removeImage'])->name('remove-image');

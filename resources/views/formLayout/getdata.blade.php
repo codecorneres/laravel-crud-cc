@@ -7,19 +7,19 @@
         <thead>
 
             <tr>
-                <th scope="col">S.No.</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last name</th>
-                <th scope="col">Email Address</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Address</th>
-                <th scope="col">Country</th>
-                <th scope="col">State</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Qualification</th>
-                <th scope="col">Course</th>
-                <th scope="col">Adhar card</th>
-                <th scope="col">Action</th>
+                <th>S.No.</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>Gender</th>
+                <th>Qualification</th>
+                <th>Course</th>
+                <th>Adhar card</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>

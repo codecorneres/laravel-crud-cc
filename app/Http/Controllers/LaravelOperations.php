@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Registration;
+use Illuminate\Support\Facades\File;
+
 
 class LaravelOperations extends Controller
 {
@@ -14,8 +16,20 @@ class LaravelOperations extends Controller
 
     public function insertdata(Request $request)
     {
-        // echo '<pre/>';
-        // print_r($request->all());
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'user_email' => 'required|email',
+            'user_phn' => 'required',
+            'user_address' => 'required',
+            'user_country' => 'required',
+            'user_state' => 'required',
+            'user_gender' => 'required',
+            'user_qalification' => 'required',
+            'addCourse' => 'required',
+            'myfile' => 'required'
+        ]);
 
         // Registration::create($request->all());
         $registrationData =  new Registration();
@@ -72,13 +86,11 @@ class LaravelOperations extends Controller
         $customers = Registration::find($id);
         $customers->FirstName = $request['first_name'];
         $customers->LastName = $request['last_name'];
-
         $customers->Address = $request['user_address'];
         $customers->Country =  $request['user_country'];
         $customers->State = $request['user_state'];
         $customers->Gender = $request['user_gender'];
         $customers->Qualification = $request['user_qalification'];
-
         $customers->Course = $request['addCourse'];
 
         if ($request->hasFile('myfile')) {
@@ -90,7 +102,7 @@ class LaravelOperations extends Controller
                     $extension = $file->getClientOriginalExtension();
                     $filename = time() . '_' . $key . '.' . $extension;
                     $file->move('uploads/students/', $filename);
-                    logger($filename);
+                    // logger($filename);
                     $adharCards[] = $filename;
                 }
             }
@@ -120,5 +132,29 @@ class LaravelOperations extends Controller
     public function addData()
     {
         return view('formLayout.createForm');
+    }
+
+
+    public function removeImage(Request $request)
+    {
+        $imageUrlToRemove = $request->imageUrl;
+        $customer = Registration::find($request->customerId);
+
+        if (File::exists(public_path('uploads/students/' . $imageUrlToRemove))) {
+            //logger('exist');
+            File::delete(public_path('uploads/students/' . $imageUrlToRemove));
+        }
+
+        $adharcard = json_decode($customer->Adharcard);
+
+        $adharcard = array_filter($adharcard, function ($image) use ($imageUrlToRemove) {
+            //logger($imageUrlToRemove);
+            //logger($image);
+            return $image !== $imageUrlToRemove;
+        });
+
+        $customer->Adharcard = json_encode(array_values($adharcard));
+        $customer->save();
+        return redirect()->back();
     }
 }

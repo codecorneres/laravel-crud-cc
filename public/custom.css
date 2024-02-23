@@ -72,3 +72,7 @@ a.btn-delete {
     color: red;
     text-transform: uppercase;
 }
+.text-danger {
+    color: red;
+    display: block;
+}
